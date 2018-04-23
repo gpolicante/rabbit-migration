@@ -8,7 +8,7 @@ echo "There was an error, check the configuration files"
 
 function sucess_file(){
 
-echo "Successful configuration archive server"
+echo "Successful configuration file server"
 
 }
 
@@ -20,7 +20,7 @@ echo "There was an error, check the configuration files and connection"
 
 function sucess_connect(){
 
-echo "Successful configuration archive server and connection"
+echo "Successful configuration file server and connection"
 
 }
 
@@ -31,7 +31,7 @@ HOST2=$(grep server2 server  | awk -F= '{print $2}')
 PASS1=$(grep password1 server  | awk -F= '{print $2}')
 PASS2=$(grep password2 server  | awk -F= '{print $2}')
 CONNECT="ssh -i rabbit.pem root@$HOST1"
-
+TRANSFER="scp -i rabbit.pem root@$HOST1"
     if [ ! -z "$HOST1" ] && [ ! -z "$HOST2" ] && [ ! -z "$PASS1" ] && [ ! -z "$PASS2" ] ; then 
 
     sucess_file

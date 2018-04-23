@@ -32,7 +32,19 @@ done
 for i in $($CONNECT '/opt/zimbra/bin/zmprov gadl') ; do 
 
 
-echo " gerando relatorio da lista separada por arquivos $i, aguarde ... "
+echo " $ZMPROV gdlm $i  > /tmp/$i " > /tmp/members  
 
+
+scp -i rabbit.pem /tmp/members root@$HOST1:/tmp/
+
+$CONNECT 'bash /tmp/members'
+
+$TRANSFER:/tmp/$i /tmp/
+
+       for adl in $(cat /tmp/$i | egrep  -v "distribution|members"); do 
+
+        $ZMPROV adlm $i $adl 
+
+       done 
 
 done 
