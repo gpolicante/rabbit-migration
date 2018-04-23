@@ -1,0 +1,38 @@
+#!/bin/bash
+
+echo "Create all distribution list in server $HOST2, one minute..."
+
+for dl in $($CONNECT '/opt/zimbra/bin/zmprov gadl' ) ; do 
+
+QUERY_LIST=$($ZMPROV gadl | grep $dl)
+
+if [ -z $QUERY_LIST ]; then 
+
+echo "create distribution list $dl"
+
+$ZMPROV cdl $dl
+
+QUERY_LIST2=$($ZMPROV gadl | grep $dl )
+    if [ ! -z $QUERY_LIST2 ]; then 
+    echo "Distribution list $dl create success :) "
+    else 
+    echo "Distribution list $dl not create :( "
+    fi 
+
+else
+
+echo "Distribution list already exists in server $HOST2 "
+
+fi
+
+
+
+done 
+
+for i in $($CONNECT '/opt/zimbra/bin/zmprov gadl') ; do 
+
+
+echo " gerando relatorio da lista separada por arquivos $i, aguarde ... "
+
+
+done 

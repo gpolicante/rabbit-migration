@@ -1,0 +1,26 @@
+#!/bin/bash
+
+echo "reading users on the server $HOST1 ..."
+
+for users in $($CONNECT '/opt/zimbra/bin/zmprov' -l gaa | egrep -v "galsync|virus|ham|spam|admin" ) ; do 
+
+QUERY_USER=$($ZMPROV -l gaa | grep $users)
+
+if [ -z $QUERY_USER ]; then 
+
+$ZMPROV ca $users $PASS2
+
+QUERY_USER2=$($ZMPROV -l gaa | grep $users)
+    if [ ! -z $QUERY_USER2 ]; then 
+       echo "user $users create success :)"
+    else
+       echo "user $users not create :( "   
+    fi
+else 
+
+echo "your user $users already exists in server "
+
+
+fi
+
+done 

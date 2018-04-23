@@ -1,0 +1,31 @@
+#!/bin/bash
+
+echo "create all domains server $HOST2"
+
+for domain in $($CONNECT '/opt/zimbra/bin/zmprov gad') ; do 
+
+QUERY=$($ZMPROV gad | grep $domain)
+
+if [ -z $QUERY ]; then 
+
+echo "create domain $domain in server $HOST2 "
+ $ZMPROV cd $domain
+
+QUERY_DOMAIN=$($ZMPROV gad | grep $domain)
+
+    if [ ! -z $QUERY_DOMAIN  ]; then
+
+    echo " your domain $domain create success :D "
+    else 
+    echo "Domain $domain is not create :("
+    fi
+
+else 
+
+
+echo "your domain $domain already exists in server $HOST2"
+
+fi
+
+done 
+

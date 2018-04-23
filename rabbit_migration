@@ -1,0 +1,111 @@
+#!/bin/bash 
+
+function error_file(){
+
+echo "There was an error, check the configuration files"
+
+}
+
+function sucess_file(){
+
+echo "Successful configuration archive server"
+
+}
+
+function error_connect(){
+
+echo "There was an error, check the configuration files and connection"
+
+}
+
+function sucess_connect(){
+
+echo "Successful configuration archive server and connection"
+
+}
+
+ZMPROV="/opt/zimbra/bin/zmprov"
+ZMCONTROL="/opt/zimbra/bin/zmcontrol"
+HOST1=$(grep server1 server  | awk -F= '{print $2}')
+HOST2=$(grep server2 server  | awk -F= '{print $2}')
+PASS1=$(grep password1 server  | awk -F= '{print $2}')
+PASS2=$(grep password2 server  | awk -F= '{print $2}')
+CONNECT="ssh -i rabbit.pem root@$HOST1"
+
+    if [ ! -z "$HOST1" ] && [ ! -z "$HOST2" ] && [ ! -z "$PASS1" ] && [ ! -z "$PASS2" ] ; then 
+
+    sucess_file
+
+            else
+
+    error_file
+    exit 0
+
+    fi 
+
+echo "test connect ..."
+
+
+$CONNECT 'touch /tmp/a'
+
+if [ "$?" == "0" ] ; then 
+
+sucess_connect
+
+else
+
+error_connect 
+exit 0
+
+fi
+
+echo "test service zimbra start, one minute..."
+
+$CONNECT 'service zimbra status' >& /dev/null
+
+if [ "$?" == "0" ]; then 
+
+sucess_connect
+
+else 
+
+error_connect
+echo "All services zimbra need be started $HOST1"
+
+exit 0
+
+fi
+
+# create all domain new server 
+
+if [ "$?" == "0" ] ; then
+
+
+source cdomain
+
+else
+
+echo "connection zimbra not success :( "
+exit 0
+fi
+
+if [ "$?" == "0"  ] ; then 
+
+echo "all domains create success"
+echo "create all users, one minute..."
+
+source cusers
+
+else 
+
+echo "An unexpected error occurred  in migrate users :( "
+exit 0
+fi
+
+if [ "$?" == "0" ] ; then 
+
+echo "all users create success \o/ ... Create Distribution List  and insert users" 
+
+source distlist
+
+fi
