@@ -27,7 +27,7 @@ if [ "$?" == "0" ]; then
 
 echo "Sender file file_calendar to $HOST1 "
 
-scp  /tmp/file_calendar root@$HOST1:/tmp/
+scp -i rabbit.pem /tmp/file_calendar root@$HOST1:/tmp/
 
 TESTMIGRATION=$($CONNECT 'ls /tmp/file_calendar >& /dev/null ; echo $?')
 
@@ -50,7 +50,7 @@ if [ "$?" == "0" ]; then
 
 echo "copying directory migration_calendar..."
 
-rsync -avpP $HOST1:/tmp/migration_calendar /tmp/
+scp -i rabbit.pem root@$HOST1:/tmp/migration_calendar /tmp/
 
     for restcalendar in $($ZMPROV -l gaa | egrep -v "galsync|virus|ham|spam|admin"); do 
    
