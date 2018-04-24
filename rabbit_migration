@@ -26,6 +26,7 @@ echo "Successful configuration file server and connection"
 
 ZMPROV="/opt/zimbra/bin/zmprov"
 ZMCONTROL="/opt/zimbra/bin/zmcontrol"
+ZMMAILBOX="/opt/zimbra/bin/zmmailbox"
 HOST1=$(grep server1 server  | awk -F= '{print $2}')
 HOST2=$(grep server2 server  | awk -F= '{print $2}')
 PASS1=$(grep password1 server  | awk -F= '{print $2}')
@@ -108,4 +109,37 @@ echo "all users create success \o/ ... Create Distribution List  and insert user
 
 source distlist
 
+else 
+
+error_connect
+exit 0
+
 fi
+
+if [ "$?" == "0" ]; then 
+
+echo "All users create in distribution list ... Initializing Migration mailbox..."
+
+source mailbox
+
+else 
+
+error_connect
+exit 0 
+
+fi
+
+if [ "$?" == "0" ]; then 
+
+echo "All mailbox transfer success :)"
+echo "Lets go transfer calendar"
+
+source calendar
+
+else
+
+error_connect
+exit 0
+
+fi
+

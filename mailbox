@@ -1,0 +1,36 @@
+#!/bin/bash
+
+echo "Create password all users in server $HOST1, reading file server password1"
+
+for passmail in $($ZMPROV -l gaa | egrep -v "galsync|virus|ham|spam|admin") ; do 
+
+echo "$ZMPROV sp $passmail $PASS1" >> /tmp/passhost1
+
+done 
+
+echo "Sender file password to $HOST1"
+scp -i rabbit.pem /tmp/passhost1 root@HOST1:/tmp/passhost1
+
+echo "Alter password all user, one minute..."
+$CONNECT 'bash /tmp/passhost1'
+
+for mailbox in $($ZMPROV -l gaa | egrep -v "galsync|virus|ham|spam|admin" ); do 
+
+echo "initializing migration mailbox $mailbox server $HOST1  to $HOST2 "
+
+imapsync --host1 $HOST1 --user1 $mailbox --password1 $PASS1 --ssl1 --host2 $HOST2  --user2 $mailbox --password2 $PASS2 --ssl2
+
+
+if [ "$?" == "0" ] ; then 
+
+echo
+echo
+echo "User $mailbox migration 100%"
+sleep 2
+
+else 
+
+echo "User $mailbox not migration :( "
+
+
+done 

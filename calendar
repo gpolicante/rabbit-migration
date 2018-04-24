@@ -1,0 +1,84 @@
+#!/bin/bash
+
+echo "Start migration calendar..."
+
+for fcalendar in $($ZMPROV -l gaa | egrep -v "galsync|virus|ham|spam|admin"); do 
+
+CONSULTDIR=$(ls /tmp/ | grep -x migration_calendar )
+
+if [ -z $CONSULTDIR ]; then 
+
+echo "create file migration_calendar in tmp"
+
+echo "Create file input calendar to $HOST2"
+
+echo "$ZMMAILBOX -z -m $fcalendar getRestURL \"/calendar?fmt=ics\"  > /tmp/migration_calendar/$fcalendar.ics " >> /tmp/file_calendar
+
+else 
+
+echo "Create file input calendar to $HOST2"
+
+echo "$ZMMAILBOX -z -m $fcalendar getRestURL \"/calendar?fmt=ics\"  > /tmp/migration_calendar/$fcalendar.ics " >> /tmp/file_calendar
+fi 
+
+done 
+
+if [ "$?" == "0" ]; then 
+
+echo "Sender file file_calendar to $HOST1 "
+
+scp  /tmp/file_calendar root@$HOST1:/tmp/
+
+TESTMIGRATION=$($CONNECT 'ls /tmp/file_calendar >& /dev/null ; echo $?')
+
+    if [ "$TESTMIGRATION" == "0" ]; then 
+
+    echo "Create files calendar in all users $HOST1 "
+    mkdir /tmp/migration_calendar
+    $CONNECT 'bash /tmp/file_calendar'
+
+    else 
+
+    echo "Error, file migration_calendar not found"
+    exit 0 
+
+    fi
+
+fi
+
+if [ "$?" == "0" ]; then 
+
+echo "copying directory migration_calendar..."
+
+rsync -avpP $HOST1:/tmp/migration_calendar /tmp/
+
+    for restcalendar in $($ZMPROV -l gaa | egrep -v "galsync|virus|ham|spam|admin"); do 
+   
+   FILEM=$(ls /tmp/migration_calendar/ | grep -x $restcalendar)
+
+   if [ -z $FILEM ]; then
+   
+    $ZMMAILBOX -z -m $restcalendar postRestURL "/calendar?fmt=ics" /tmp/migration_calendar/$restcalendar.ics
+        if [ "$?" == "0" ] ; then
+        echo "migration calendar success :) "
+        else
+        echo "calendar not migration :("
+        fi
+
+    else 
+
+    echo "file calendar not migration to $HOST2 "
+    
+    fi 
+
+
+    done
+
+
+
+else 
+
+echo "Error, create migration files"
+exit 0 
+
+fi

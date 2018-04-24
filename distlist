@@ -42,7 +42,7 @@ $CONNECT 'bash /tmp/members'
 $TRANSFER:/tmp/$i /tmp/
 
        for adl in $(cat /tmp/$i | egrep  -v "distribution|members"); do 
-
+        echo "Create user $adl in list distribution $i"
         $ZMPROV adlm $i $adl 
 
        done 

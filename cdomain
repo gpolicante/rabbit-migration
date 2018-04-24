@@ -4,14 +4,14 @@ echo "create all domains server $HOST2"
 
 for domain in $($CONNECT '/opt/zimbra/bin/zmprov gad') ; do 
 
-QUERY=$($ZMPROV gad | grep $domain)
+QUERY=$($ZMPROV gad | grep -x $domain)
 
 if [ -z $QUERY ]; then 
 
 echo "create domain $domain in server $HOST2 "
  $ZMPROV cd $domain
 
-QUERY_DOMAIN=$($ZMPROV gad | grep $domain)
+QUERY_DOMAIN=$($ZMPROV gad | grep -x  $domain)
 
     if [ ! -z $QUERY_DOMAIN  ]; then
 
