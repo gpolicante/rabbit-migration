@@ -60,7 +60,7 @@ rsync -avpP $HOST1:/tmp/migration_calendar /tmp/
    
     $ZMMAILBOX -z -m $restcalendar postRestURL "/calendar?fmt=ics" /tmp/migration_calendar/$restcalendar.ics
         if [ "$?" == "0" ] ; then
-        echo "migration calendar success :) "
+        echo "migration calendar $restcalendar success :) "
         else
         echo "calendar not migration :("
         fi
@@ -68,7 +68,7 @@ rsync -avpP $HOST1:/tmp/migration_calendar /tmp/
     else 
 
     echo "file calendar not migration to $HOST2 "
-    
+
     fi 
 
 
