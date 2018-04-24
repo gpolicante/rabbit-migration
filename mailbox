@@ -18,6 +18,8 @@ for mailbox in $($ZMPROV -l gaa | egrep -v "galsync|virus|ham|spam|admin" ); do
 
 echo "initializing migration mailbox $mailbox server $HOST1  to $HOST2 "
 
+
+
 imapsync --host1 $HOST1 --user1 $mailbox --password1 $PASS1 --ssl1 --host2 $HOST2  --user2 $mailbox --password2 $PASS2 --ssl2
 
 

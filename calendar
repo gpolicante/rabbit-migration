@@ -6,7 +6,7 @@ for fcalendar in $($ZMPROV -l gaa | egrep -v "galsync|virus|ham|spam|admin"); do
 
 CONSULTDIR=$(ls /tmp/ | grep -x migration_calendar )
 
-if [ -z $CONSULTDIR ]; then 
+if [ -z $CONSULTDIR ]; then
 
 echo "create file migration_calendar in tmp"
 
@@ -14,12 +14,14 @@ echo "Create file input calendar to $HOST2"
 
 echo "$ZMMAILBOX -z -m $fcalendar getRestURL \"/calendar?fmt=ics\"  > /tmp/migration_calendar/$fcalendar.ics " >> /tmp/file_calendar
 
-else 
+else
 
 echo "Create file input calendar to $HOST2"
 
 echo "$ZMMAILBOX -z -m $fcalendar getRestURL \"/calendar?fmt=ics\"  > /tmp/migration_calendar/$fcalendar.ics " >> /tmp/file_calendar
-fi 
+fi
+
+
 
 done 
 
@@ -34,7 +36,7 @@ TESTMIGRATION=$($CONNECT 'ls /tmp/file_calendar >& /dev/null ; echo $?')
     if [ "$TESTMIGRATION" == "0" ]; then 
 
     echo "Create files calendar in all users $HOST1 "
-    mkdir /tmp/migration_calendar
+    $CONNECT 'mkdir /tmp/migration_calendar'
     $CONNECT 'bash /tmp/file_calendar'
 
     else 
