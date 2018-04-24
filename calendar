@@ -52,7 +52,7 @@ if [ "$?" == "0" ]; then
 
 echo "copying directory migration_calendar..."
 
-scp -i rabbit.pem root@$HOST1:/tmp/migration_calendar /tmp/
+scp -ri rabbit.pem root@$HOST1:/tmp/migration_calendar /tmp/
 
     for restcalendar in $($ZMPROV -l gaa | egrep -v "galsync|virus|ham|spam|admin"); do 
    
