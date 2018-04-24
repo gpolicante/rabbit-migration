@@ -9,7 +9,7 @@ echo "$ZMPROV sp $passmail $PASS1" >> /tmp/passhost1
 done 
 
 echo "Sender file password to $HOST1"
-scp -i rabbit.pem /tmp/passhost1 root@HOST1:/tmp/passhost1
+scp -i rabbit.pem /tmp/passhost1 root@$HOST1:/tmp/passhost1
 
 echo "Alter password all user, one minute..."
 $CONNECT 'bash /tmp/passhost1'
@@ -31,6 +31,6 @@ sleep 2
 else 
 
 echo "User $mailbox not migration :( "
-
+fi
 
 done 
