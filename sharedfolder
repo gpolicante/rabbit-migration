@@ -8,7 +8,7 @@ ZMLISTFOLDER="$ZMMAILBOX -z -m $USERDEST gaf | grep \) | sed 's/:/|/g' | sed 's/
 
     $CONNECT $ZMLISTFOLDER > $DIRTMPSHARED_$USERDEST
 
-FINDTEXT="cat /tmp/shared_folder_$USERDEST"
+FINDTEXT="cat $DIRTMPSHARED_$USERDEST"
 
  if [ -z $FINDTEXT ] ; then  
 
