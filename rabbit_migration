@@ -143,4 +143,11 @@ exit 0
 
 fi
 
+if [ "$?" == "0" ]; then 
+
+source sharedfolder
+
+fi
+
+
 echo "Finish Migration \o/ we are champions :)"
