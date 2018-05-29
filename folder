@@ -1,0 +1,17 @@
+#!/bin/bash
+
+
+for USER in (cat users) ; do 
+
+	for CREATEFOLDER in $($ZMMAILBOX -z -m $USER gaf | awk -F"/" '{print "/"$2}' | cut -d"(" -f1 | grep -v ^/$ ) ; do
+	
+		$ZMMAILBOX -z -m $USER cf $CREATEFOLDER
+	
+	done
+
+
+done 
+
+
+
+

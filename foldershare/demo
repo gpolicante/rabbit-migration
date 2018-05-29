@@ -2,7 +2,7 @@
 
 
 DIRTMPSHARED="/tmp/dir_shared/shared_folder"
-for USERDEST in $($ZMPROV -l gaa) ; do
+for USERDEST in $(cat /tmp/user) ; do
        echo "user $USERDEST"
 
 #   LISTAR PASTAS COMPARTILHADAS NA CONTA
@@ -23,22 +23,16 @@ echo " User $USERDEST does not has shared folder "
                          IDORIG=$(cat ${DIRTMPSHARED}_${USERDEST} | grep "$DIRDEST" | awk -F"|" '{print $3}' )
                         ACCOUNTORIG=$(cat ${DIRTMPSHARED}_$USERDEST | grep "$DIRDEST" | awk -F"|" '{print $2}' )
 			MODIFYID="$ZMMAILBOX -z -m $ACCOUNTORIG gaf | awk '(\$1 == $IDORIG ) {\$1=\$2=\$3=\$4=\"\"; print \$0}'"
+			TRADEID=$($CONNECT $MODIFYID < /dev/null)
+		
+			echo " $ZMMAILBOX -z -m "${USERDEST}" df "$DIRDEST" "
+			 $ZMMAILBOX -z -m "${USERDEST}" df "$DIRDEST" 
+			echo "$ZMMAILBOX -z -m ${ACCOUNTORIG} "${TRADEID}" account ${USERDEST} rwixa "
+			$ZMMAILBOX -z -m ${ACCOUNTORIG} "${TRADEID}" account ${USERDEST} rwixa 
 
 
-               TRADEID=$($CONNECT $MODIFYID < /dev/null)
-
-                        echo " $ZMMAILBOX -z -m \"${USERDEST}\" df \"$DIRDEST\" "
-                         $ZMMAILBOX -z -m ${USERDEST} df "$DIRDEST"
-                        echo "$ZMMAILBOX -z -m ${ACCOUNTORIG} mfg " ${TRADEID} " account ${USERDEST} rwixa "
-                        $ZMMAILBOX -z -m ${ACCOUNTORIG} mfg "$(echo $TRADEID)" account ${USERDEST} rwixa
-
-                        echo "$ZMMAILBOX -z -m ${USERDEST} cm "$DIRDEST" ${ACCOUNTORIG} "${TRADEID}" "
-
-
-                        $ZMMAILBOX -z -m ${USERDEST} cm "$DIRDEST" ${ACCOUNTORIG} "$(echo $TRADEID)"
-
-
-
+			echo "$ZMMAILBOX -z -m ${USERDEST} cm "${DIRDEST}" ${ACCOUNTORIG} "${TRADEID}" "
+			$ZMMAILBOX -z -m ${USERDEST} cm "${DIRDEST}" ${ACCOUNTORIG} "${TRADEID}" 
 
 		 done
 

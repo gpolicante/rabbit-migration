@@ -1,0 +1,41 @@
+#!/bin/bash
+
+DIRTMPSHARED="/tmp/shared_folder"
+for USERDEST in $($ZMPROV -l gaa) ; do
+       echo "user $USERDEST" 	
+
+#   LISTAR PASTAS COMPARTILHADAS NA CONTA
+ZMLISTFOLDER="$ZMMAILBOX -z -m $USERDEST gaf | grep \( |awk '{\$1=\$2=\$3=\$4=\"\"; print \$0}'  |  sed 's/:/|/g' | sed 's/ (/|/g' | sed 's/)/|/g' "
+
+    $CONNECT $ZMLISTFOLDER > ${DIRTMPSHARED}_$USERDEST
+
+FINDTEXT="cat ${DIRTMPSHARED}_$USERDEST"
+
+ if [ -z "$FINDTEXT" ]; then  
+
+echo " User $USERDEST does not has shared folder "
+
+else 
+    for FOLDERID in $(awk -F"|" '{print $3}' ${DIRTMPSHARED}_$USERDEST) ; do
+        ZMFILTERFILE="$ZMMAILBOX -z -m $(grep -w  ${FOLDERID} ${DIRTMPSHARED}_$USERDEST |cut -d"|" -f2 ) gaf |  awk -F/ ' \$1 ~ /$FOLDERID/ {print \"/\"\$2}' | grep -v unread"
+
+        FOLDERDEST=$(grep -w  $FOLDERID ${DIRTMPSHARED}_$USERDEST | awk -F"|" '{print $1}')
+        USERORIG=$(grep -w  $FOLDERID ${DIRTMPSHARED}_$USERDEST | awk -F"|" '{print $2}')
+
+        TRADEID=$($CONNECT $ZMFILTERFILE)
+        sed -i "s~${FOLDERID}~${TRADEID}~" ${DIRTMPSHARED}_$USERDEST
+
+        FOLDERORIG=$(grep  -w ${TRADEID} ${DIRTMPSHARED}_$USERDEST | awk -F"|" '{print $3}' )
+
+        $ZMMAILBOX -z -m $USERDEST df "$FOLDERDEST"
+
+
+        $ZMMAILBOX -z -m $USERORIG mfg "$TRADEID" account $USERDEST rwixa
+        $ZMMAILBOX -z -m $USERDEST cm "$FOLDERDEST" $USERORIG  "$TRADEID"
+
+    done
+fi 
+
+done 
+
+

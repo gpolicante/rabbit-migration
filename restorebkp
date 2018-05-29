@@ -1,0 +1,9 @@
+#!/bin/bash 
+
+DEST='/backup/Restore/Anteriores/full-20180515201054/'
+
+for USER in $(/opt/zimbra/bin/zmprov -l gaa) ; do  
+
+echo "/opt/zimbra/bin/zmmailbox -z -m $USER postRestURL '//?fmt=tgz&resolve=skip' /backup/Restore/Anteriores/full-20180515201054/${USER}.tgz "
+
+done 

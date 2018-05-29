@@ -1,0 +1,221 @@
+[zimbra@correio ~]$ zmmailbox -z -m lucas.bona@uspedra.com.br gaf
+        Id  View      Unread   Msg Count  Path
+----------  ----  ----------  ----------  ----------
+         1  unkn           0        2984  /
+       257  mess           0           0  /1 - SonicWall
+       258  mess           0          12  /André Suporte
+       271  mess           0          11  /Archives
+       283  mess           0           0  /Banned
+       284  mess           0           0  /Bloquear Spam
+       285  mess           0           4  /Boletim Balança
+        16  docu           0           6  /Briefcase
+    143379  docu           0           2  /Briefcase/Acessos Infra
+    143380  docu           0           3  /Briefcase/Bona
+    143381  docu           0           0  /Briefcase/Reestruturação Infra
+    143382  docu           0          14  /Briefcase/TI_Suporte
+        10  appo           0         297  /Calendar
+        14  mess           0           0  /Chats
+       292  mess           0         105  /Chico
+       406  mess           0           0  /Comments
+       407  mess           0          17  /Compras
+         7  cont           0           1  /Contacts
+       429  mess           0           2  /Contatos
+       432  mess           0        1537  /Contatos_Coletados
+      1478  mess           0          66  /Cursos
+      1875  mess        8147        8147  /Disk Quota
+     14667  mess           0        1510  /Diversos
+         6  mess           0          64  /Drafts
+        13  cont           0         331  /Emailed Contacts
+     16976  mess           0           2  /Empresas - Vendas
+     16982  mess           0           4  /Endereços
+     16987  mess           0           0  /Entrada
+     16990  mess           0           0  /Entrada/Lixeira
+     16991  mess           0           0  /Enviados
+     16992  mess           0         800  /Evandro
+     18580  mess           0          49  /Evandro/2011
+     18660  mess           0          54  /Evandro/2012
+     18731  mess           0          64  /Evandro/2013
+     18829  mess           0          75  /Evandro/2014
+     18944  mess           0         118  /Evandro/2015
+     19117  mess           0         224  /Evandro/2016
+     19429  mess           0         182  /Evandro/2017
+     19673  mess           0          61  /Evandro/2017/Férias
+     19753  mess           0          69  /Evandro/2018
+     19845  mess           0         124  /Evandro/Férias
+     20022  mess           0         294  /Evandro/Férias/2015
+     20405  mess        6105        6111  /Feeds
+     29375  mess         217         447  /Gatua
+     29909  mess           0          17  /Google
+     29926  mess           0         397  /Horários
+     40950  mess           0           7  /Ilab
+         2  mess         156         198  /Inbox
+     30516  mess           4           4  /Inbox/Avisos Gerais
+     30523  mess           2           2  /Inbox/Avisos Gerais/Avisos - Buriti
+     30529  mess           0           0  /Inbox/Avisos Gerais/Avisos - Ipe
+     30530  mess           0           0  /Inbox/Avisos Gerais/Avisos - Pedra
+     30531  mess           0           5  /Inbox/Backup Email
+     30536  mess           0           2  /Inbox/Backup Email/Consórcio
+    143388  mess           0           1  /Inbox/Consórcio
+     30542  mess        2584        4222  /Inbox/Suporte TI. PedraAgroindustrial's Inbox
+     36254  mess        4786        5389  /Inbox/Suporte TI. PedraAgroindustrial's Spams
+     40960  mess           0           3  /Interessante
+     40965  mess           0        8740  /Itens enviados
+     40964  mess           0           0  /Itens Excluidos
+         4  mess          86          94  /Junk
+     51897  mess           0           2  /Leitura
+     51900  mess           0           4  /Licenças
+     51905  mess           0           0  /Lixeira
+     51906  mess           0           0  /Logwatch
+     51907  mess           0           7  /Manuais
+     51917  mess           0           7  /Medidores
+     51927  mess        4860        4924  /Mensagens Automáticas
+     59311  mess           0           0  /Mensagens Retornadas
+     59314  mess           0           0  /Nagios
+     59317  mess           0          16  /Office 365
+     59335  mess           0          38  /Outros
+    143392  appo           0          21  /Particular
+     59379  mess           0          66  /Podium
+     59472  mess           0           2  /Problemas Diversos
+     59477  mess           0           0  /Projetos
+     59480  mess           0          93  /Projetos/BOC
+     59588  mess           0         747  /Projetos/BPC
+     60413  mess           0          64  /Projetos/Infra
+     60492  mess           0           8  /Projetos/Itil
+     60503  mess           0         126  /Projetos/Link
+     60658  mess           0          38  /Projetos/Oracle
+     60705  mess           0          98  /Projetos/Projetos Diversos
+     60817  mess           0           4  /Projetos/SAP Cloud
+     60828  mess           0          40  /Projetos/SAP Interno
+     60881  mess           0          82  /Projetos/Segurança
+     60984  mess           0          16  /Projetos/Sites
+     61004  mess           0          10  /Projetos/Slack
+     61015  mess           0         123  /Projetos/Wifi
+     61148  mess           0           0  /Rascunhos
+     61150  mess           0          68  /Ricardo
+     62938  mess           0         380  /Sandro
+     61242  mess           0        1004  /SAP
+     62410  mess           0           1  /SAP/Chamados
+     62414  mess           0         353  /SAP/Enterprise Support
+     62832  mess           0          43  /SAP/Enterprise Support/Cursos_SAP
+    151454  mess           0          10  /SAP/Mobilidade SAP
+     62886  mess           0           8  /SAP/Solicitações Basis
+     62903  mess           0          32  /SAP/SuccessFactors
+         5  mess           0       23951  /Sent
+     91652  mess           0           2  /ServerProtect
+     91654  mess           0         148  /Servicos
+     92033  mess           0           8  /Servicos/Acopla
+     91857  mess           0         172  /Servicos/APN Vivo
+     92042  mess           0          34  /Servicos/Auditoria
+     92083  mess           0          20  /Servicos/Autotrac
+     92193  mess           0          22  /Servicos/Bnc
+     92107  mess           0          78  /Servicos/BT
+     92279  mess           0           6  /Servicos/Carpa
+     92289  mess           0           6  /Servicos/Chamados
+     92299  mess           0          18  /Servicos/Chamados 3COM
+     92325  mess           0          92  /Servicos/Chamados Cisco
+     92436  mess           0          64  /Servicos/Chamados Dell
+     92509  mess           0        1573  /Servicos/Chamados HP
+     94496  mess           0           2  /Servicos/Chamados HP/Proactive
+     94505  mess           0          20  /Servicos/Chamados IBM-Lenovo
+     94527  mess           0         147  /Servicos/Chamados Telefônica
+     94694  mess           0          28  /Servicos/Chamados VMware
+     94702  mess           0           1  /Servicos/Chamados Xerox
+     94705  mess           0         120  /Servicos/Channel
+     94849  mess           0         234  /Servicos/Coletores
+     95142  mess           0         285  /Servicos/Comlink
+     95431  mess           0           0  /Servicos/Correio
+     92216  mess           0          61  /Servicos/CPFL
+     95433  mess           0          39  /Servicos/Dell
+     95480  mess           0          54  /Servicos/Dicopy
+     95547  mess           0          51  /Servicos/Dynamitec
+     95616  mess           0           1  /Servicos/Evolua
+     95622  mess           0         182  /Servicos/Férias
+     95854  mess           0          60  /Servicos/Férias/2012
+     95969  mess           0          95  /Servicos/HomePrinter
+     95933  mess           0          32  /Servicos/HP
+     96110  mess           0          52  /Servicos/Ivirtua
+     96169  mess           0          44  /Servicos/Kace
+     96223  mess           0           5  /Servicos/Liberação de Acesso
+     96232  mess           0        1334  /Servicos/Liberação de Acesso/Criar Usuários
+     97907  mess           0         122  /Servicos/Liberação de Acesso/Email
+     98067  mess           0         952  /Servicos/Liberação de Acesso/Internet
+     99252  mess           0         624  /Servicos/Liberação de Acesso/Pastas
+    100021  mess           0           1  /Servicos/Liberação de Acesso/Pen-Cds-DVD
+    100027  mess           0        1944  /Servicos/Liberação de Acesso/Telas Oracle
+    102666  mess           0           4  /Servicos/Liberação de Acesso/Usb
+    102672  mess           0          16  /Servicos/Markanti
+    102696  mess           0         264  /Servicos/Microset
+    102990  mess           0          68  /Servicos/Multh
+    103073  mess           0           2  /Servicos/Nota Fiscal Eletrônica
+    103076  mess           0          98  /Servicos/Novos Servidores
+    103201  mess           0          37  /Servicos/Orçamentos Fibra
+    103257  mess           0          48  /Servicos/Outros
+    103575  mess           0         426  /Servicos/Palm
+    104067  mess           0          62  /Servicos/Papaléguas
+    104162  mess           0          88  /Servicos/Paradas Ipe
+    103306  mess           0         232  /Servicos/PIMS
+    104272  mess           0         184  /Servicos/Preditiva
+    104497  mess           0          28  /Servicos/Renovações Dominios
+    104536  mess           0          74  /Servicos/SSTI
+    104646  mess           0          16  /Servicos/Trauma
+    104631  mess           0          12  /Servicos/TRDs
+    104668  mess           0          32  /Servicos/Trend
+    104708  mess           0          12  /Servicos/Veeam
+    104721  mess           0          56  /Servicos/YKP - Mastersaf
+    104785  mess           0          38  /Servicos/Zimbra
+    104834  mess           0          13  /Siman
+    104851  mess           0           4  /Suporte
+        15  task           0           0  /Tasks
+    105017  mess           0           0  /Templates
+    104857  mess           0         110  /TI
+    105020  mess           0           6  /Toledo
+    105031  mess           0          60  /Totvs
+         3  unkn           8        1021  /Trash
+    106065  mess       29786       29786  /Trend_VP
+    142620  mess           0           0  /Virus
+    142621  mess           0          80  /VisualSystem
+    142708  mess           0         260  /Wireless
+    142994  mess           0         310  /Zimbra
+    143360  mess           0           5  /Ztool
+    155560  appo           0          33  /Agenda Suporte (evandro.coro@uspedra.com.br:85006)
+    155561  appo           0          14  /Amanda Barboza's Sala 1 Projeto Evolução (amanda.barboza@uspedra.com.br:504)
+    155562  appo           0         120  /Andre Brancalion's Local - André Brancalion (andre.brancalion@uspedra.com.br:291)
+    143383  appo           0           0  /Evandro Coro's Calendar (null:10)
+    143384  cont           0           0  /Evandro Coro's Fornecedores_TI (null:101696)
+    143385  cont           0           0  /Evandro Coro's Internos (null:101664)
+    155563  mess           2         166  /Evandro Coro's SAP (evandro.coro@uspedra.com.br:67204)
+    155564  appo           0         106  /Feriados (publico@uspedra.com.br:262)
+    143387  appo           0           0  /Francisco Tristao's Calendar (francisco.tristao@uspedra.com.br:10)
+    143389  appo           0           0  /Jose Carletti's Jose Cesar Carletti (null:100180)
+    143390  appo           0           0  /Lucas Rocha's Calendar (null:10)
+    143393  appo           0           0  /Paulo Souza's Calendar (null:10)
+    155565  docu           0           1  /Ricardo Silva's SAP (ricardo.silva@uspedra.com.br:16)
+665f52e5-4  docu           0           2  /Briefcase/Acionistas
+665f52e5-4  docu           0           2  /Briefcase/Dabi Atlante S.A.
+665f52e5-4  docu           0           5  /Briefcase/Dabi Atlante S.A./Negociação marca Gnatus
+665f52e5-4  docu           0           5  /Briefcase/Dabi Atlante S.A./PPA Gnatus
+665f52e5-4  docu           0           0  /Briefcase/Dom Cabral
+665f52e5-4  docu           0          23  /Briefcase/Holding
+665f52e5-4  docu           0           3  /Briefcase/Inteligência de Mercado
+665f52e5-4  docu           0           3  /Briefcase/KPMG
+665f52e5-4  docu           0           7  /Briefcase/Lagosan
+665f52e5-4  docu           0           7  /Briefcase/Lagosan/Imóveis
+665f52e5-4  docu           0           1  /Briefcase/Planejamento Orçamentário
+665f52e5-4  docu           0           2  /Briefcase/TI Suporte
+665f52e5-4  docu           0           4  /Briefcase/Tributário
+665f52e5-4  docu           0           1  /Briefcase/Tributário/Comitê Tributário
+665f52e5-4  docu           0           1  /Briefcase/Tributário/Martinelli
+665f52e5-4  docu           0           0  /Briefcase/Tributário/Processo ICMS Divergência de Estoque
+665f52e5-4  docu           0          12  /Briefcase/Tributário/Processo ICMS Divergência de Estoque/Proc.1023734-42.2016,8.26.0053 AIIM 4.001.277-3
+665f52e5-4  docu           0          27  /Briefcase/Tributário/Processo ICMS Divergência de Estoque/Proc.1024537-25.2016.8.26.0053 AIIM 4.025.357-0
+665f52e5-4  docu           0           2  /Briefcase/Tributário/TDF_IFE
+    155566  appo           0         592  /Ricardo Silva's SAP2 (ricardo.silva@uspedra.com.br:10)
+665f52e5-4  appo           0           2  /Calendar/Alliage
+665f52e5-4  appo           0          29  /Calendar/Lagosan
+665f52e5-4  appo           0          81  /Calendar/Particular
+665f52e5-4  appo           0        1447  /Calendar/Pedra Agroindustrial
+    143399  appo           0           0  /Sala de Reunião CSC's Calendar (null:10)
+    143396  appo           0           0  /Sala Videoconferência Buriti (null:10)
+    143397  appo           0           0  /Sala Videoconferência Ipê (null:10)
+    143398  appo           0           0  /Sala Videoconferência Pedra (null:10)
+
