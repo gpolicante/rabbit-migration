@@ -4,7 +4,7 @@ echo "reading users on the server $HOST1 ..."
 
 for users in $($CONNECT '/opt/zimbra/bin/zmprov' -l gaa | egrep -v "galsync|virus|ham|spam|admin" ) ; do 
 
-QUERY_USER=$($ZMPROV -l gaa | grep $users)
+QUERY_USER=$($ZMPROV -l gaa | grep -x $users)
 
 if [ -z $QUERY_USER ]; then 
 

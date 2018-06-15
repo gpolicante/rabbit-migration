@@ -1,0 +1,7 @@
+#!/bin/bash
+
+for i in $(cat /tmp/userlist) ; do 
+
+echo $i 
+zmmailbox -z -m $i  emptyFolder /
+done 

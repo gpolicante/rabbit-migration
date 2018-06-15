@@ -1,0 +1,23 @@
+#!/bin/bash
+
+
+for i in $(cat /tmp/userlist) ; do
+
+zmmailbox -z -m $i gfrl  > /tmp/filters/filter_$i
+
+
+done 
+
+# restore 
+
+for i in $(cat /tmp/userlist) ; do 
+
+	echo "$i"
+
+	 
+
+	zmmailbox -z -m $i afrl $list
+		
+
+	done
+

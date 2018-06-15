@@ -1,0 +1,18 @@
+#!/bin/bash
+
+
+#mkdir /tmp/auth_custom
+
+
+#for USER in $(cat /tmp/userlist) ; do
+ 
+#zmprov ga $USER | grep zimbraAuthLdapExternalDn | awk '{print $2}' > /tmp/auth_custom/ldap_$USER
+
+#done
+
+
+for USER in $(cat /tmp/userlist) ; do 
+echo "$USER"
+	zmprov ma $USER zimbraAuthLdapExternalDn $(cat /tmp/auth_custom/ldap_$USER)
+
+done 	

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+
+mkdir /tmp/signall
+
+for sign in $(cat /tmp/userlist) ; do 
+
+zmprov ga $sign | grep zimbraPrefMailSignatureHTML | awk '{\$1=\"\"; print \$0}' > /tmp/signall/signature_$sign
+
+
+done
+
+
+
+#RESTORE 
+
+
+#for sign in $(cat /tmp/userlist) ; do 
+
+# sed -i 's/zimbraPrefMailSignatureHTML://' /tmp/signall/signature_$sign
+#xargs --null -a /tmp/signall/signature_$sign zmprov ma $sign zimbraPrefMailSignatureHTML
+#zmprov csig $sign  zimbraPrefMailSignatureHTML
+
+#done
